@@ -52,6 +52,6 @@ public class ChronicleMapQueueStore implements QueueStore<String> {
     }
 
     public Set<Long> loadAllKeys() {
-        return null;
+        return chronicleMap.keySet();
     }
 }

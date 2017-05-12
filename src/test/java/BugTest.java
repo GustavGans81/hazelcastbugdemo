@@ -35,7 +35,7 @@ public class BugTest {
         Config hzconfig = new Config();
         hzconfig.setInstanceName("buggyInstance");
         hzconfig.addQueueConfig(queueConfig);
-        HazelcastInstance instance = Hazelcast.newHazelcastInstance();
+        HazelcastInstance instance = Hazelcast.newHazelcastInstance(hzconfig);
 
         // this is where the test begins
         IQueue<String> queue = instance.getQueue("buggyQueue");

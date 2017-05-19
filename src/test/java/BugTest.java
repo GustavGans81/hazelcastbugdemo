@@ -14,7 +14,7 @@ import java.util.Properties;
 public class BugTest {
 
     @Test
-    public void bugTest() {
+    public void drainToTest() {
 
         // configure queuestore
         QueueStoreConfig queueStoreConfig = new QueueStoreConfig();
@@ -71,8 +71,8 @@ public class BugTest {
     private void setPropertiesByPropertiesObject(QueueStoreConfig queueStoreConfig) {
         Properties properties = new Properties();
         properties.put("binary", false);
-        properties.put("memory-limit", 1);
-        properties.put("bulk-load", 2L);
+        properties.put("memory-limit", 0);
+        properties.put("bulk-load", 4L);
         queueStoreConfig.setProperties(properties);
     }
 }

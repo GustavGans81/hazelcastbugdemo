@@ -18,7 +18,7 @@ public class ChronicleMapQueueStore implements QueueStore<String> {
     public ChronicleMapQueueStore() {
         try {
             File file = new File("chroniclemapstore.dat");
-//            file.deleteOnExit();
+            file.deleteOnExit();
             ChronicleMapBuilder<Long, String> builder = ChronicleMapBuilder.of(Long.class, String.class);
             chronicleMap = builder.entries(1000L).averageValue("xxx").createPersistedTo(file);
         } catch (IOException e) {
@@ -47,7 +47,7 @@ public class ChronicleMapQueueStore implements QueueStore<String> {
         for (Long aLong : collection) {
             chronicleMap.remove(aLong);
         }
-        System.out.println("Calling deleteAll for " + collection.size() + " entries");
+        System.out.println("Calling     deleteAll for " + collection.size() + " entries");
     }
 
     public String load(Long aLong) {

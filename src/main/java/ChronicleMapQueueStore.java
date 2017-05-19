@@ -28,18 +28,18 @@ public class ChronicleMapQueueStore implements QueueStore<String> {
 
     public void store(Long aLong, String s) {
         chronicleMap.put(aLong, s);
-        System.out.println("storing: " + s);
+        System.out.println("Calling store for: " + s);
     }
 
     public void storeAll(Map<Long, String> map) {
-        System.out.println("storing " + map.size() + " entries");
+        System.out.println("Calling storeAll for: " + map.size() + " entries");
         for (Long aLong : map.keySet()) {
             chronicleMap.put(aLong, map.get(aLong));
         }
     }
 
     public void delete(Long aLong) {
-        System.out.println("deleting key " + aLong);
+        System.out.println("Calling delete for: " + aLong);
         chronicleMap.remove(aLong);
     }
 
@@ -47,11 +47,11 @@ public class ChronicleMapQueueStore implements QueueStore<String> {
         for (Long aLong : collection) {
             chronicleMap.remove(aLong);
         }
-        System.out.println("deleting " + collection.size() + " entries");
+        System.out.println("Calling deleteAll for " + collection.size() + " entries");
     }
 
     public String load(Long aLong) {
-        System.out.println("loading key " + aLong);
+        System.out.println("Calling load for: " + aLong);
         return chronicleMap.get(aLong);
     }
 
@@ -60,7 +60,7 @@ public class ChronicleMapQueueStore implements QueueStore<String> {
         for (Long aLong : collection) {
             result.put(aLong, chronicleMap.get(aLong));
         }
-        System.out.println("loadAll for: " + collection);
+        System.out.println("Calling loadAll for: " + collection);
         return result;
     }
 
